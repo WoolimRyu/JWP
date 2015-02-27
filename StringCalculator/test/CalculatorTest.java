@@ -12,6 +12,12 @@ public class CalculatorTest {
 	}
 	
 	@Test
+	public void stringShouldBeParsedIntoInt() {
+		assertEquals("\"1\" must return 1", c.add("1"), 1);
+		assertEquals("\"2\" must return 2", c.add("2"), 2);
+	}
+	
+	@Test
 	public void stringShouldBeSplitByComma() {
 		assertEquals("1,2 must return 3", c.add("1,2"), 3);
 		assertEquals("1,2,3 must return 6", c.add("1,2,3"), 6);
