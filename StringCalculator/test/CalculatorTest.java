@@ -33,4 +33,8 @@ public class CalculatorTest {
 		assertEquals(c.add("1,2\n3"), 6);
 	}
 	
+	@Test
+	public void stringSholudBeSplitByCutsomDelimeter() {
+		assertEquals(c.add("//;\n1;2;3"), 6);
+	}
 }
