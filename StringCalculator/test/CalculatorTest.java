@@ -6,8 +6,9 @@ import org.junit.Test;
 public class CalculatorTest {
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testAssertVoidStringEqualsZero() {
+		Calculator c = new Calculator();
+		assertEquals(c.add(""), 0);
 	}
 
 }
