@@ -3,3 +3,5 @@ RemoteSystemsTempFiles
 .classpath
 .project
 .settings
+lib
+tomcat.*
