@@ -1,0 +1,3 @@
+The result is <% out.println(result); %>!<br/>
+Hello <% out.println(name); %>!<br/>
+jsp include test
