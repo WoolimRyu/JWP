@@ -1,3 +1,7 @@
-The result is <% out.println(result); %>!<br/>
-Hello <% out.println(name); %>!<br/>
-jsp include test
+<%
+	if(name != null) {
+		out.println("Your e is "+name);
+	} else {
+		out.println("Fill out the <a href='./form.jsp'>form</a>");
+	}
+%>
