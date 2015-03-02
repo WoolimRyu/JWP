@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="net.heesu.user.User" %>
+<%@ page import="net.heesu.db.Database" %>
+
 <%
 	String title = request.getParameter("title");
 	String username = request.getParameter("username");
@@ -8,8 +11,6 @@
 	String cardnumber = request.getParameter("cardnumber");
 	String expiration = request.getParameter("expiration");
 	
-	String[] values = {title, username, usermail, usercard, cardnumber, expiration};
-	for(int i=0; i<values.length; i++) {
-		out.println(values[i] +"<br />");
-	}
+	User user = new User(title, username, usermail, usercard, cardnumber, expiration);
+	Database.addUser(user);
 %>
