@@ -13,4 +13,6 @@
 	
 	User user = new User(title, username, usermail, usercard, cardnumber, expiration);
 	Database.addUser(user);
+	
+	response.sendRedirect("/");
 %>
