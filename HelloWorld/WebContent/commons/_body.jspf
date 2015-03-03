@@ -1,7 +1,23 @@
+<%@ page import="net.heesu.db.Database" %>
+<%@ page import="net.heesu.user.User" %>
+<!-- User나, Map 등을 각 클래스에서 import 해줬음에도 여기서 새로 해 줘야한다. -->
+<%@ page import="java.util.Map" %>
+<%@ page import="java.util.HashMap" %>
+
+<%
+	Map<String, User> users = Database.getUsers();
+%>
 <%
 	if(name != null) {
 		out.println("Your e is "+name);
 	} else {
 		out.println("Fill out the <a href='./form.jsp'>form</a>");
 	}
+%>
+
+<br />
+<%
+for( String key : users.keySet() ){
+    out.println(users.get(key).getUsername());
+}
 %>

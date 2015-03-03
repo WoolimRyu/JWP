@@ -11,4 +11,8 @@ public class Database {
 	public static void addUser(User user) {
 		users.put(user.getUsermail(), user);
 	}
+	
+	public static Map<String, User> getUsers() {
+		return users;
+	}
 }
