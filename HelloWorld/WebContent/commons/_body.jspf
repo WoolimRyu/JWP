@@ -21,3 +21,5 @@ for( String key : users.keySet() ){
     out.println(users.get(key).getUsername());
 }
 %>
+
+<!-- _body.jspf만 따로 실행시켜보면 'Hello World from Servlet'라고 나온다. -->
