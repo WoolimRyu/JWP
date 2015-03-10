@@ -134,6 +134,12 @@ input[type=submit]:hover {
 </style>
 </head>
 <body>
+<%
+	Object errorMessage = request.getAttribute("errorMessage");
+	if (errorMessage != null) { %>
+		<div><%= errorMessage %></div>
+<%	}
+%>
 	<form method="POST" action="/login_action.jsp">
 		<div class="input">
 			<label for="email">E-mail:</label> <input type="email"
