@@ -13,19 +13,16 @@ public class UserTest {
 	
 	@Test
 	public void matchPassword() {
-		System.out.println("matchPassword");
 		assertTrue(TEST_USER.matchUsername("username"));
 	}
 	
 	@Test
 	public void notMatchPassword() {
-		System.out.println("notMatchPassword");
 		assertFalse(TEST_USER.matchUsername("username2"));
 	}
 	
 	@Test
 	public void login() throws Exception {
-		System.out.println("login");
 		User user = UserTest.TEST_USER;
 		Database.addUser(user);
 		
@@ -34,13 +31,11 @@ public class UserTest {
 	
 	@Test(expected=UserNotFoundException.class)
 	public void loginWhenNotExistingUser() throws Exception {
-		System.out.println("notfound");
 		User.login("nobody@naver.com", TEST_USER.getUsername());
 	}
 	
 	@Test(expected=UsernameMismatchException.class)
 	public void loginWhenUsernameMismatch() throws Exception {
-		System.out.println("wrongusername");
 		User user = UserTest.TEST_USER;
 		Database.addUser(user);
 		User.login(TEST_USER.getUsermail(), "wrongUsername");

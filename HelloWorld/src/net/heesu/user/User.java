@@ -74,8 +74,6 @@ public class User {
 	}
 
 	public static boolean login(String usermail, String username) throws UserNotFoundException, UsernameMismatchException {
-		System.out.println("Hello");
-		System.out.println(usermail);
 		User user = Database.findUserByUsermail(usermail);
 		if (user == null) {
 			throw new UserNotFoundException();
