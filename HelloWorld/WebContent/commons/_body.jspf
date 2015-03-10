@@ -5,20 +5,26 @@
 <%@ page import="java.util.HashMap" %>
 
 <%
-	Map<String, User> users = Database.getUsers();
-%>
-<%
-	if(name != null) {
-		out.println("Your e is "+name);
+	Object usermail = session.getAttribute("usermail");
+	if (usermail == null) {
+		out.println("<a href='./form.jsp'>sign up</a>");
+		out.println("<br>or<br>");
+		out.println("<a href='./login.jsp'>login</a>");
 	} else {
-		out.println("Fill out the <a href='./form.jsp'>form</a>");
+		out.println("Your mail is "+usermail);
 	}
 %>
 
+
+<%
+	Map<String, User> users = Database.getUsers();
+%>
 <br />
 <%
 for( String key : users.keySet() ){
-    out.println(users.get(key).getUsername());
+    out.print(users.get(key).getUsermail()+", ");
+    out.print(users.get(key).getUsername());
+    out.println("<br>");
 }
 %>
 
