@@ -41,6 +41,8 @@ public class UserTest {
 	@Test(expected=UsernameMismatchException.class)
 	public void loginWhenUsernameMismatch() throws Exception {
 		System.out.println("wrongusername");
+		User user = UserTest.TEST_USER;
+		Database.addUser(user);
 		User.login(TEST_USER.getUsermail(), "wrongUsername");
 	}
 
