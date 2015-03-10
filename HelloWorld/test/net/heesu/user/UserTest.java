@@ -4,12 +4,18 @@ import static org.junit.Assert.*;
 import net.heesu.db.Database;
 import net.heesu.user.User;
 
+import org.junit.Before;
 import org.junit.Test;
 
 
 public class UserTest {
 
 	public static User TEST_USER = new User("title", "username", "email@nhnnext.org", "visa", "0405132", "2017-01");
+	
+	@Before
+	public void addUser() {
+		Database.addUser(TEST_USER);
+	}
 	
 	@Test
 	public void matchPassword() {
@@ -22,10 +28,7 @@ public class UserTest {
 	}
 	
 	@Test
-	public void login() throws Exception {
-		User user = UserTest.TEST_USER;
-		Database.addUser(user);
-		
+	public void login() throws Exception {		
 		assertTrue(User.login(TEST_USER.getUsermail(), TEST_USER.getUsername()));
 	}
 	
@@ -36,8 +39,6 @@ public class UserTest {
 	
 	@Test(expected=UsernameMismatchException.class)
 	public void loginWhenUsernameMismatch() throws Exception {
-		User user = UserTest.TEST_USER;
-		Database.addUser(user);
 		User.login(TEST_USER.getUsermail(), "wrongUsername");
 	}
 
