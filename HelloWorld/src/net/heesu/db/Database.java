@@ -16,4 +16,8 @@ public class Database {
 	public static Map<String, User> getUsers() {
 		return users;
 	}
+
+	public static User findUserByUsermail(String usermail) {
+		return users.get(usermail);
+	}
 }

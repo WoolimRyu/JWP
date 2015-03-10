@@ -1,5 +1,7 @@
 package net.heesu.user;
 
+import net.heesu.db.Database;
+
 public class User {
 	private String title;
 	private String username;
@@ -65,5 +67,23 @@ public class User {
 
 	public void setExpiration(String expiration) {
 		this.expiration = expiration;
+	}
+
+	public boolean matchUsername(String username) {
+		return this.username.equals(username);
+	}
+
+	public static boolean login(String usermail, String username) throws UserNotFoundException, UsernameMismatchException {
+		System.out.println("Hello");
+		System.out.println(usermail);
+		User user = Database.findUserByUsermail(usermail);
+		if (user == null) {
+			throw new UserNotFoundException();
+		}
+		if (!(user.matchUsername(username))) {
+			throw new UsernameMismatchException();
+		}
+		
+		return true;
 	}
 }
