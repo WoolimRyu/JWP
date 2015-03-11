@@ -27,14 +27,16 @@ public class LoginServlet extends HttpServlet {
 
 			response.sendRedirect("/");
 		} catch (UserNotFoundException e) {
-			request.setAttribute("errorMessage", "존재하지 않는 사용자입니다.");	
-			/* request 에 담으면, session 과 달리, 접근 못 함. */
-			RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
-			rd.forward(request, response);
+			forwardJSP(request, response, "존재하지 않는 사용자입니다.");
 		} catch (UsernameMismatchException e) {
-			request.setAttribute("errorMessage", "이름과 메일이 맞지 않습니다.");	
-			RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
-			rd.forward(request, response);
+			forwardJSP(request, response, "이름과 메일이 맞지 않습니다.");
 		}
+	}
+	
+	private void forwardJSP(HttpServletRequest request, HttpServletResponse response, String errorMessage)
+		throws ServletException, IOException {
+		request.setAttribute("errorMessage", errorMessage);
+		RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
+		rd.forward(request, response);
 	}
 }
