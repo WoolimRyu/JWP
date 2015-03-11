@@ -29,11 +29,11 @@ public class LoginServlet extends HttpServlet {
 		} catch (UserNotFoundException e) {
 			request.setAttribute("errorMessage", "존재하지 않는 사용자입니다.");	
 			/* request 에 담으면, session 과 달리, 접근 못 함. */
-			RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
 			rd.forward(request, response);
 		} catch (UsernameMismatchException e) {
 			request.setAttribute("errorMessage", "이름과 메일이 맞지 않습니다.");	
-			RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
 			rd.forward(request, response);
 		}
 	}
