@@ -1,3 +1,5 @@
+<%@page import="week01.Database"%>
+<%@page import="week01.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -134,17 +136,20 @@ input[type=submit]:hover {
 </style>
 </head>
 <body>
-	<% String email = request.getParameter("email"); %>
+	<%
+	String email = request.getParameter("email");
+	User user = Database.findUserByUsermail(email);
+	%>
 	<form method="POST" action="/UpdateUser">
 		<div class="input">
 			<label for="email">Email Address</label> <input type="email"
 				id="email" name="email" autocorrect="off" autocapitalize="off"
-				maxlength="64" readonly="readonly" value="<%=email%>" style="background-color:#d3d3d3;">
+				maxlength="64" readonly="readonly" value="<%=user.getEmail()%>" style="background-color:#d3d3d3;">
 		</div>
 		<div class="input">
 			<label for="full-name">Full Name</label> <input type="text"
 				id="full-name" name="name" autocorrect="off"
-				autocapitalize="words" maxlength="32">
+				autocapitalize="words" maxlength="32" value="<%=user.getName()%>">
 		</div>
 		<div class="input clearfix">
 			<label for="password">Password</label> <input type="text"

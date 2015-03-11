@@ -16,4 +16,8 @@ public class Database {
 	public static void updateUser(User user) {
 		users.put(user.getEmail(), user);
 	}
+	
+	public static User findUserByUsermail(String email) {
+		return users.get(email);
+	}
 }
