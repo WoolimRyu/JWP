@@ -12,6 +12,7 @@
 		out.println("<a href='./login.jsp'>login</a>");
 	} else {
 		out.println("Your mail is "+usermail);
+		out.println("<a href='/users/logout'>logout</a>");
 	}
 %>
 
