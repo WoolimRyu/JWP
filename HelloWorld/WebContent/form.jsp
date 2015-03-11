@@ -9,7 +9,7 @@
 <body>
 <table border="1" cellpadding="10" style="border-collapse:collapse;border:1px solid gray;"><tr><td>
 	<!-- from : https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Forms/How_to_structure_an_HTML_form -->
-	<form action="/form_action.jsp"
+	<form action="/users/save"
 		method="post">
 		<h1>Payment form</h1>
 		<p>

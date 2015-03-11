@@ -140,7 +140,7 @@ input[type=submit]:hover {
 		<div><%= errorMessage %></div>
 <%	}
 %>
-	<form method="POST" action="/login_action.jsp">
+	<form method="POST" action="/users/login">
 		<div class="input">
 			<label for="email">E-mail:</label> <input type="email"
 				id="email" name="usermail" autocorrect="off" autocapitalize="off"
